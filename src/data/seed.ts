@@ -12,10 +12,9 @@ const defaultTheme = {
 
 // Show every section by default; the admin can hide them per workshop.
 const allFieldsVisible = {
-  location: true,
-  audience: true,
-  duration: true,
   spots: true,
+  audience: true,
+  location: true,
   description: true,
 };
 
@@ -23,7 +22,7 @@ const workshops: Workshop[] = [
   {
     id: "w1",
     title: "Pottery Wheel Workshop",
-    description: "Throw your first bowl on the wheel. Clay and tools included.",
+    description: "Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. Throw your first bowl on the wheel. Clay and tools included. ",
     imageUrl: "https://picsum.photos/seed/pottery/600/400",
     location: "Paris 11e",
     audience: "Adults",

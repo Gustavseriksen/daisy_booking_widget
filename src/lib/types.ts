@@ -8,10 +8,9 @@ export type WidgetTheme = {
 
 // Which parts of a card are shown or hidden.
 export type VisibleFields = {
-  location: boolean;
-  audience: boolean;
-  duration: boolean;
   spots: boolean;
+  audience: boolean;
+  location: boolean;
   description: boolean;
 };
 
