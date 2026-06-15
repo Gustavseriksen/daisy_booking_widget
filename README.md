@@ -6,6 +6,20 @@ A booking widget that artists add to their own website. It shows upcoming worksh
 - **The widget on its own (what a client sees on an artist's site):** https://daisy-booking-widget.vercel.app/carousel
 - **Admin / configurator:** https://daisy-booking-widget.vercel.app/admin
 
+## Screenshots
+
+**The widget that clients see (`/carousel`)**
+
+<img src="img/carousel-desktop.png" alt="The widget on a desktop screen" width="800" />
+
+<img src="img/carousel-mobile.png" alt="The widget on a phone screen" width="260" />
+
+**The admin where artists set it up (`/admin`)**
+
+<img src="img/admin-desktop.png" alt="The admin on a desktop screen" width="800" />
+
+<img src="img/admin-mobile.png" alt="The admin on a phone screen" width="260" />
+
 ## Run it
 
 ```bash
