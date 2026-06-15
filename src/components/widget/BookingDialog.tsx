@@ -21,7 +21,10 @@ type BookingDialogProps = {
   trigger: React.ReactNode;
 };
 
+// The booking pop-up. Shows a summary, then a short "booking..." step, then a
+// success message. The booking is simulated — there is no real payment.
 export function BookingDialog({ workshop, trigger }: BookingDialogProps) {
+  // ready = showing the summary, booking = in progress, success = confirmed.
   const [status, setStatus] = useState<"ready" | "booking" | "success">("ready");
 
   async function handleConfirm() {
@@ -40,6 +43,7 @@ export function BookingDialog({ workshop, trigger }: BookingDialogProps) {
       <DialogTrigger asChild>{trigger}</DialogTrigger>
 
       <DialogContent>
+        {/* Show the success screen, otherwise the confirm screen. */}
         {status === "success" ? (
           <>
             <DialogHeader>

@@ -14,6 +14,8 @@ type WorkshopCarouselProps = {
   workshops: ScheduledWorkshop[];
 };
 
+// Shows all workshops in a horizontal, swipeable row with arrow buttons.
+// One card per screen on phones, more on wider screens.
 export function WorkshopCarousel({ workshops }: WorkshopCarouselProps) {
   return (
     <Carousel

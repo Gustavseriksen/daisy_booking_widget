@@ -20,14 +20,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { formatDateRange } from "@/lib/format";
-import type { AppConfig, Slot } from "@/lib/types";
+import type { AdminTabProps, Slot } from "@/lib/types";
 
-type SlotsTabProps = {
-  config: AppConfig;
-  update: (next: AppConfig) => void;
-};
-
-export function SlotsTab({ config, update }: SlotsTabProps) {
+// Admin tab: add and remove time slots (dates) for a chosen workshop.
+export function SlotsTab({ config, update }: AdminTabProps) {
   const [workshopId, setWorkshopId] = useState(config.workshops[0]?.id ?? "");
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [dateOpen, setDateOpen] = useState(false);
@@ -35,10 +31,12 @@ export function SlotsTab({ config, update }: SlotsTabProps) {
   const [capacity, setCapacity] = useState(8);
 
   const workshop = config.workshops.find((w) => w.id === workshopId);
+  // Slots for the chosen workshop, soonest first.
   const slots = config.slots
     .filter((s) => s.workshopId === workshopId)
     .sort((a, b) => a.startsAt.localeCompare(b.startsAt));
 
+  // Join the picked date and time into one ISO string, then save the slot.
   function addSlot() {
     if (!date || !time) return;
     const dateStr = format(date, "yyyy-MM-dd");

@@ -53,11 +53,7 @@ export type AppConfig = {
   slots: Slot[];
 };
 
-// The states the widget can be in. Only one at a time.
-export type WidgetStatus =
-  | "loading"
-  | "error"
-  | "empty"
-  | "idle"
-  | "booking"
-  | "success";
+export type AdminTabProps = {
+  config: AppConfig;
+  update: (next: AppConfig) => void;
+};

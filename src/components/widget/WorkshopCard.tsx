@@ -18,7 +18,10 @@ type WorkshopCardProps = {
   workshop: ScheduledWorkshop;
 };
 
+// A single workshop card: image, price, title, details and a "Book" button.
+// Colors come from the --widget-* CSS variables set by BookingWidget.
 export function WorkshopCard({ workshop }: WorkshopCardProps) {
+  // No seats left: fade the image and disable the button.
   const isFull = workshop.remainingSpots <= 0;
 
   return (
@@ -46,6 +49,7 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
       <CardContent className="-mt-4">
         <ScrollArea className="h-70">
           <CardDescription className="space-y-1.5 text-lg lg:text-sm">
+            {/* The date always shows. The rows below can be hidden per workshop. */}
             <div className="flex items-center gap-2">
               <Calendar className="size-4" />
               {formatDateRange(workshop.startsAt, workshop.durationMin)}

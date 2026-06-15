@@ -24,6 +24,9 @@ type BookingWidgetProps = {
   className?: string;
 };
 
+// The widget container. It "fetches" the workshops (a fake call with a small
+// delay) and shows the right screen: loading, error, empty, or the carousel.
+// It also turns the theme colors into CSS variables the cards read.
 export function BookingWidget({
   workshops,
   state = "normal",

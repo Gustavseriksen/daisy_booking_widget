@@ -12,7 +12,7 @@ import {
   ColorPickerTrigger,
 } from "@/components/ui/color-picker";
 import { Label } from "@/components/ui/label";
-import type { AppConfig, WidgetTheme } from "@/lib/types";
+import type { AdminTabProps, WidgetTheme } from "@/lib/types";
 
 const THEME_FIELDS: { key: keyof WidgetTheme; label: string }[] = [
   { key: "primary", label: "Primary (buttons, price)" },
@@ -21,12 +21,10 @@ const THEME_FIELDS: { key: keyof WidgetTheme; label: string }[] = [
   { key: "text", label: "Text" },
 ];
 
-type ThemeTabProps = {
-  config: AppConfig;
-  update: (next: AppConfig) => void;
-};
-
-export function ThemeTab({ config, update }: ThemeTabProps) {
+// Admin tab: pick the four widget colors. Each change saves immediately
+// and shows in the live preview.
+export function ThemeTab({ config, update }: AdminTabProps) {
+  // Change one color and save the whole config back.
   function setColor(key: keyof WidgetTheme, value: string) {
     update({ ...config, theme: { ...config.theme, [key]: value } });
   }

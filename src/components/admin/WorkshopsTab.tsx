@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { AppConfig, Audience, VisibleFields, Workshop } from "@/lib/types";
+import type { AdminTabProps, Audience, VisibleFields, Workshop } from "@/lib/types";
 
 const AUDIENCES: Audience[] = ["All ages", "Adults", "Children"];
 
@@ -24,12 +24,10 @@ const FIELD_TOGGLES: { key: keyof VisibleFields; label: string }[] = [
   { key: "description", label: "Description" },
 ];
 
-type WorkshopsTabProps = {
-  config: AppConfig;
-  update: (next: AppConfig) => void;
-};
-
-export function WorkshopsTab({ config, update }: WorkshopsTabProps) {
+// Admin tab: create, edit and delete workshops, and choose which details
+// show on each card.
+export function WorkshopsTab({ config, update }: AdminTabProps) {
+  // Which workshop is currently being edited.
   const [selectedId, setSelectedId] = useState(config.workshops[0]?.id ?? "");
   const selected = config.workshops.find((w) => w.id === selectedId);
 
@@ -43,6 +41,7 @@ export function WorkshopsTab({ config, update }: WorkshopsTabProps) {
     });
   }
 
+  // Add a blank workshop and select it for editing.
   function addWorkshop() {
     const newWorkshop: Workshop = {
       id: crypto.randomUUID(),
@@ -64,6 +63,7 @@ export function WorkshopsTab({ config, update }: WorkshopsTabProps) {
     setSelectedId(newWorkshop.id);
   }
 
+  // Remove the workshop and all of its time slots.
   function deleteWorkshop() {
     update({
       ...config,
